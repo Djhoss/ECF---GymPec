@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{  structure.city }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+           <img src="../club/{{ structure.illustration }}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-7 my-auto">
+          <h3 class="text-center">{{ structure.city }}</h3>
+            <h6 class="text-center"> {{ structure.adress }}</h6>
+            <hr>
+            <p>{{ structure.description }}</p>
+            <hr>
+            <a class="btn btn-primary " href="{{ path('app_club')}}">Revenir a nos produits</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos clubs
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-lg-3">
+			<h3>Filtre</h3>
+			{{ form(form) }}
+			</div>
+			<div class="col-lg-9 col-md-12 col-sm-12">
+				<h1 class="text-center my-4">
+					Nos clubs
+				</h1>
+				<div class="row">
+					{% for structure in structures %}
+						<div class="col-xl-3 col-4 col-sm-5 mb-2 mx-4">
+							<div class="club card item text-center border border-top-0 my-4" style="width: 16rem;">
+								<img class="card-img" src="./club/{{ structure.illustration }}"> 
+								<div class="card-body">
+									{% if structure.open == 0 %}
+
+										<div class="text-danger">
+											<h4>Ce club est fermé
+											</h4>
+										</div>
+										<hr>
+									{% endif %}
+									<h4 class="card-title my-3">
+										{{ structure.partenaire }}</h3>
+									<hr>
+									<h6 class="card-text">
+										{{ structure.adress }}</h6>
+									<hr>
+									<br>
+									<p class="card-text">{{ structure.description }}</p>
+									<a href="{{ path('app_club_show', {'city': structure.city }) }}" class="btn btn-primary">Voir</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+	{% endblock %}
